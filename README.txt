@@ -29,7 +29,7 @@ $git clone https://github.com/WalterAlonso/2_PSP2.git
 
 ** Ejecute el programa:
 
-	java -cp target/Ecos_CalculoTamanioRelativo-1.0-SNAPSHOT.jar uniandes.ecos.conceptosAvanzados.tamanioRelativo.controlador.CalculoTamanioRelativo
+	java -cp target/Ecos_CalculoTamanioRelativo-1.0-SNAPSHOT.jar uniandes.ecos.conceptosAvanzados.tamanioRelativo.controlador.CalculoTamanioRelativo "ArchivoCargaLocMetodo.txt"
 
 ** Documentacion del sitio
 
