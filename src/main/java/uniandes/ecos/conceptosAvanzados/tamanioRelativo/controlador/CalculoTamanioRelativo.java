@@ -33,6 +33,7 @@ public class CalculoTamanioRelativo {
 
 	    get("/Loc", (req, res) -> {
 	    	TamanioRelativoVista vista = new TamanioRelativoVista();
+	    	try{
 	    	String archivo = "./ArchivoProcesar/ArchivoCargaLocCapitulos.txt";
 			TipoCategoria tipoCategoria = TipoCategoria.Clase;
 			ArchivoCategoriaFuncional archivoCategoriaFuncional = new ArchivoCategoriaFuncional(tipoCategoria, archivo);
@@ -51,6 +52,11 @@ public class CalculoTamanioRelativo {
 			vista.MostrarTamanioRelativo();
 	    	
 	    	return new ModelAndView(categoriaFuncional.darTamanioVeryLarge(), "error.ftl");
+	    	}
+	    	catch(Exception ex) {
+	    		vista.mostrarError(ex.getMessage());
+	    		return new ModelAndView(ex.getMessage(),"error.ftl");
+	    	}
 	    }, new FreeMarkerEngine());
 
 	    /*get("/", (request, response) -> {
