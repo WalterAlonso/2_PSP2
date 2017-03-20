@@ -26,7 +26,7 @@ $git clone https://github.com/WalterAlonso/2_PSP2.git
 
 ** Ejecucion maven
 
-	 mvn package
+	 mvn clean install
 
 ** Ejecute el programa:
 
@@ -35,6 +35,10 @@ $git clone https://github.com/WalterAlonso/2_PSP2.git
 ** Documentacion del sitio
 
 	mvn site
+		- Cobertura de pruebas unitarias: target/site/cobertura/index.html
+		- Analisis de codigo (PMD): 	  target/site/pmd.html
+		- Documentacion de codigo test: target/site/testapidocs/index.html
+		- Documentacion de codigo de la aplicacion: target/site/apidocs/index.html
 
 ** Heroku:
 
