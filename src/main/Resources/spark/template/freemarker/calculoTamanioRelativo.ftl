@@ -5,9 +5,7 @@
 </head>
 
 <body>
-
   <#include "nav.ftl">
-
 <div class="jumbotron text-center">
   <div class="container">    
     <h3>CALCULO DE TAMA&Ntilde;O RELATIVO</h3>
