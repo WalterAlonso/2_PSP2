@@ -35,7 +35,7 @@ public class CalculoTamanioRelativoWeb {
 	 *            argmentos del sistema
 	 */
 	public static void main(String[] args) {
-		port(Integer.valueOf(System.getenv("PORT")));
+		//port(Integer.valueOf(System.getenv("PORT")));
 		//Request al home del sitio.
 		get("/", (req, res) -> {
 			Map<String, Object> attributes = new HashMap<>();
