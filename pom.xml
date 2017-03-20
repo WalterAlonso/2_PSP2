@@ -61,7 +61,7 @@
                 </descriptorRefs>
                 <archive>
                     <manifest>
-                        <mainClass>uniandes.ecos.conceptosAvanzados.tamanioRelativo.controlador.CalculoTamanioRelativoWeb</mainClass>
+                        <mainClass>CalculoTamanioRelativoWeb</mainClass>
                     </manifest>
                 </archive>
             </configuration>
