@@ -39,3 +39,11 @@ $git clone https://github.com/WalterAlonso/2_PSP2.git
 ** Heroku:
 
 	https://app-tamaniorelativo.herokuapp.com/
+
+
+****************  Generalidades ***********************************
+Dentro de la controladora se observan dos clases con metodo main estatico, esto se debe a
+que se generaron 2 clases para la aplicación consola y otra para web con spark.
+
+	- CalculoTamanioRelativo: Inicia el sistema con programa en consola (en la cual se ejecuta este programa en instrucciones de ejecución)
+	- CalculoTamanioRelativoWeb: Inicia el sistema web, el cual fue desplegado en Heroku.
