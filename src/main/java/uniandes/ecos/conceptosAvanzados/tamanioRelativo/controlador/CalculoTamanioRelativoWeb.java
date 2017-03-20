@@ -36,6 +36,7 @@ public class CalculoTamanioRelativoWeb {
 	 */
 	public static void main(String[] args) {
 		port(Integer.valueOf(System.getenv("PORT")));
+		staticFileLocation("/ArchivoProcesar");
 		//Request al home del sitio.
 		get("/", (req, res) -> {
 			Map<String, Object> attributes = new HashMap<>();
