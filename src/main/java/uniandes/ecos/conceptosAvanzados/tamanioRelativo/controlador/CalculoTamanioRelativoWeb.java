@@ -37,14 +37,20 @@ public class CalculoTamanioRelativoWeb {
 	public static void main(String[] args) {
 		port(Integer.valueOf(System.getenv("PORT")));
 		staticFileLocation("/ArchivoProcesar");
+		
+		/*get("/aa", (req, res) -> {
+			String pathToMyFile = "classpath:/myFile.test"
+			ArrayList<String> fileLines = Files.readLines(ResourceUtils.getFile(pathToMyFile), IOConstants.DEFAULT_CHARSET_TYPE);
+		});*/
+		
 		//Request al home del sitio.
 		get("/", (req, res) -> {
 			Map<String, Object> attributes = new HashMap<>();
 			try {
-				String archivoLoc = "src/main/Resources/ArchivoProcesar/ArchivoCargaLocMetodo.txt";
+				String archivoLoc = "ArchivoProcesar/ArchivoCargaLocMetodo.txt";
 				procesarArchivo(attributes, TipoCategoria.Clase, archivoLoc, "LOC/Method Data", "TipoCategoriaLoc");
 
-				String archivoCapitulos = "src/main/resources/ArchivoProcesar/ArchivoCargaLocCapitulos.txt";
+				String archivoCapitulos = "ArchivoProcesar/ArchivoCargaLocCapitulos.txt";
 				procesarArchivo(attributes, TipoCategoria.Capitulo, archivoCapitulos, "Pgs/Chapter",
 						"TipoCategoriaCapitulo");
 
@@ -59,7 +65,7 @@ public class CalculoTamanioRelativoWeb {
 		get("/PruebasArchivo", (request, response) -> {
 			Map<String, Object> attributes = new HashMap<>();
 			try {
-				String archivo = "ArchivoExtensionErronea.dat";
+				String archivo = "src/main/Resources/ArchivoProcesar/ArchivoExtensionErronea.dat";
 				ArchivoCategoriaFuncional archivoCategoriaFuncional = new ArchivoCategoriaFuncional(TipoCategoria.Clase,
 						archivo);
 				archivoCategoriaFuncional.procesarArchivo();
