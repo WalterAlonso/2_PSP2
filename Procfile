@@ -1,1 +1,1 @@
-web: java -jar target/Ecos_CalculoTamanioRelativo-1.0-SNAPSHOT-jar-with-dependencies.jar "ArchivoCargaLocMetodo.txt"
+web: java $JAVA_OPTS -cp target/classes:target/dependency/* uniandes.ecos.conceptosAvanzados.tamanioRelativo.controlador.CalculoTamanioRelativoWeb "ArchivoCargaLocMetodo.txt"
