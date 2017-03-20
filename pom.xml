@@ -103,7 +103,7 @@
 				  <appendAssemblyId>false</appendAssemblyId>
 				  <archive>
 					<manifest>
-					  <mainClass>CalculoTamanioRelativoWeb</mainClass>
+					  <mainClass>uniandes.ecos.conceptosAvanzados.tamanioRelativo.controlador.CalculoTamanioRelativoWeb</mainClass>
 					</manifest>
 				  </archive>
 				</configuration>
