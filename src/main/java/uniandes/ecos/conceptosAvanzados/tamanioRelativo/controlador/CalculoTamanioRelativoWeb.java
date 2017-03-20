@@ -8,6 +8,10 @@
 
 package uniandes.ecos.conceptosAvanzados.tamanioRelativo.controlador;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -37,20 +41,15 @@ public class CalculoTamanioRelativoWeb {
 	public static void main(String[] args) {
 		port(Integer.valueOf(System.getenv("PORT")));
 		staticFileLocation("/ArchivoProcesar");
-		
-		/*get("/aa", (req, res) -> {
-			String pathToMyFile = "classpath:/myFile.test"
-			ArrayList<String> fileLines = Files.readLines(ResourceUtils.getFile(pathToMyFile), IOConstants.DEFAULT_CHARSET_TYPE);
-		});*/
-		
+				
 		//Request al home del sitio.
 		get("/", (req, res) -> {
 			Map<String, Object> attributes = new HashMap<>();
 			try {
-				String archivoLoc = "ArchivoProcesar/ArchivoCargaLocMetodo.txt";
+				String archivoLoc = "target/classes/ArchivoCargaLocMetodo.txt";
 				procesarArchivo(attributes, TipoCategoria.Clase, archivoLoc, "LOC/Method Data", "TipoCategoriaLoc");
 
-				String archivoCapitulos = "ArchivoProcesar/ArchivoCargaLocCapitulos.txt";
+				String archivoCapitulos = "target/classes/ArchivoCargaLocCapitulos.txt";
 				procesarArchivo(attributes, TipoCategoria.Capitulo, archivoCapitulos, "Pgs/Chapter",
 						"TipoCategoriaCapitulo");
 
@@ -65,7 +64,7 @@ public class CalculoTamanioRelativoWeb {
 		get("/PruebasArchivo", (request, response) -> {
 			Map<String, Object> attributes = new HashMap<>();
 			try {
-				String archivo = "src/main/Resources/ArchivoProcesar/ArchivoExtensionErronea.dat";
+				String archivo = "target/classes/ArchivoExtensionErronea.dat";
 				ArchivoCategoriaFuncional archivoCategoriaFuncional = new ArchivoCategoriaFuncional(TipoCategoria.Clase,
 						archivo);
 				archivoCategoriaFuncional.procesarArchivo();
@@ -75,7 +74,7 @@ public class CalculoTamanioRelativoWeb {
 			}
 
 			try {
-				String archivo = "ArchivoVacio.txt";
+				String archivo = "target/classes/ArchivoVacio.txt";
 				ArchivoCategoriaFuncional archivoCategoriaFuncional = new ArchivoCategoriaFuncional(TipoCategoria.Clase,
 						archivo);
 				archivoCategoriaFuncional.procesarArchivo();
@@ -85,7 +84,7 @@ public class CalculoTamanioRelativoWeb {
 			}
 
 			try {
-				String archivo = "ArchivoNoExiste.txt";
+				String archivo = "target/classes/ArchivoNoExiste.txt";
 				ArchivoCategoriaFuncional archivoCategoriaFuncional = new ArchivoCategoriaFuncional(TipoCategoria.Clase,
 						archivo);
 				archivoCategoriaFuncional.procesarArchivo();
@@ -102,6 +101,8 @@ public class CalculoTamanioRelativoWeb {
 			String nombreCategoria, String llave) throws Exception {
 		ArchivoCategoriaFuncional archivoCategoriaFuncional = new ArchivoCategoriaFuncional(tipoCategoria, archivo);
 		archivoCategoriaFuncional.procesarArchivo();
+		
+		
 		ArrayList<Double> contenidoArchivo = archivoCategoriaFuncional.darDatos();
 		CategoriaFuncional categoriaFuncional = new CategoriaFuncional(contenidoArchivo, nombreCategoria);
 		categoriaFuncional.calcularTamanios();
