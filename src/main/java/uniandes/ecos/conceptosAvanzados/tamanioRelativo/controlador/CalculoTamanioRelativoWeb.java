@@ -46,10 +46,10 @@ public class CalculoTamanioRelativoWeb {
 		get("/", (req, res) -> {
 			Map<String, Object> attributes = new HashMap<>();
 			try {
-				String archivoLoc = "target/classes/ArchivoCargaLocMetodo.txt";
+				String archivoLoc = "target/classes/ArchivoProcesar/ArchivoCargaLocMetodo.txt";
 				procesarArchivo(attributes, TipoCategoria.Clase, archivoLoc, "LOC/Method Data", "TipoCategoriaLoc");
 
-				String archivoCapitulos = "target/classes/ArchivoCargaLocCapitulos.txt";
+				String archivoCapitulos = "target/classes/ArchivoProcesar/ArchivoCargaLocCapitulos.txt";
 				procesarArchivo(attributes, TipoCategoria.Capitulo, archivoCapitulos, "Pgs/Chapter",
 						"TipoCategoriaCapitulo");
 
@@ -64,7 +64,7 @@ public class CalculoTamanioRelativoWeb {
 		get("/PruebasArchivo", (request, response) -> {
 			Map<String, Object> attributes = new HashMap<>();
 			try {
-				String archivo = "target/classes/ArchivoExtensionErronea.dat";
+				String archivo = "target/classes/ArchivoProcesar/ArchivoExtensionErronea.dat";
 				ArchivoCategoriaFuncional archivoCategoriaFuncional = new ArchivoCategoriaFuncional(TipoCategoria.Clase,
 						archivo);
 				archivoCategoriaFuncional.procesarArchivo();
@@ -74,7 +74,7 @@ public class CalculoTamanioRelativoWeb {
 			}
 
 			try {
-				String archivo = "target/classes/ArchivoVacio.txt";
+				String archivo = "target/classes/ArchivoProcesar/ArchivoVacio.txt";
 				ArchivoCategoriaFuncional archivoCategoriaFuncional = new ArchivoCategoriaFuncional(TipoCategoria.Clase,
 						archivo);
 				archivoCategoriaFuncional.procesarArchivo();
@@ -84,7 +84,7 @@ public class CalculoTamanioRelativoWeb {
 			}
 
 			try {
-				String archivo = "target/classes/ArchivoNoExiste.txt";
+				String archivo = "target/classes/ArchivoProcesar/ArchivoNoExiste.txt";
 				ArchivoCategoriaFuncional archivoCategoriaFuncional = new ArchivoCategoriaFuncional(TipoCategoria.Clase,
 						archivo);
 				archivoCategoriaFuncional.procesarArchivo();
